@@ -1,0 +1,53 @@
+{
+  "name": "create-q-app",
+  "version": "0.1.0",
+  "description": "Create projects based on templates",
+  "author": "Robin Luley <robin.luley@qbeyond.de>",
+  "license": "ISC",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "packageManager": "yarn@3.2.1",
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
+    "@incloud/prettier-config": "^1.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-typescript": "^8.3.2",
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "16.11.36",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
+    "eslint": "^8.16.0",
+    "eslint-config-incloud": "^2.0.3",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.1",
+    "pinst": "^3.0.0",
+    "prettier": "^2.6.2",
+    "rollup": "^2.74.1",
+    "rollup-plugin-preserve-shebang": "^1.0.1",
+    "rollup-plugin-prettier": "^2.2.2",
+    "tslib": "^2.4.0",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "chalk": "5.0.1",
+    "commander": "9.2.0",
+    "fs-extra": "^10.1.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -cw",
+    "lint": "eslint src",
+    "format": "yarn prettier -w src",
+    "postinstall": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable"
+  },
+  "bin": {
+    "cqa": "dist/index.js",
+    "q": "dist/index.js"
+  }
+}
