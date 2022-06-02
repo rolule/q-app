@@ -1,9 +1,9 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { FunctionComponent, useState } from 'react';
+import './App.css';
+import logo from './logo.svg';
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App: FunctionComponent = () => {
+  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
@@ -39,7 +39,5 @@ function App() {
         </p>
       </header>
     </div>
-  )
-}
-
-export default App
+  );
+};
