@@ -46,6 +46,7 @@ var scripts = {
   build: 'rollup -c',
   watch: 'rollup -cw',
   lint: 'eslint src',
+  format: 'yarn prettier -w src',
   postinstall: 'husky install',
   prepack: 'pinst --disable',
   postpack: 'pinst --enable',
