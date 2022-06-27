@@ -5,7 +5,7 @@ import chalk from 'chalk';
 import { Command, CommanderError } from 'commander';
 import fs from 'fs-extra';
 
-var name = 'create-q-app';
+var name = 'q-app';
 var version = '0.1.0';
 var description = 'Create projects based on templates';
 var author = 'Robin Luley <robin.luley@qbeyond.de>';
@@ -52,8 +52,8 @@ var scripts = {
   postpack: 'pinst --enable',
 };
 var bin = {
-  cqa: 'dist/index.js',
   q: 'dist/index.js',
+  qapp: 'dist/index.js',
 };
 var packageJson = {
   name: name,

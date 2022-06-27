@@ -1,5 +1,5 @@
 {
-  "name": "create-q-app",
+  "name": "q-app",
   "version": "0.1.0",
   "description": "Create projects based on templates",
   "author": "Robin Luley <robin.luley@qbeyond.de>",
@@ -47,7 +47,7 @@
     "postpack": "pinst --enable"
   },
   "bin": {
-    "cqa": "dist/index.js",
-    "q": "dist/index.js"
+    "q": "dist/index.js",
+    "qapp": "dist/index.js"
   }
 }
