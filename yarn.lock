@@ -432,6 +432,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/eslint@npm:^8.4.5":
+  version: 8.4.5
+  resolution: "@types/eslint@npm:8.4.5"
+  dependencies:
+    "@types/estree": "*"
+    "@types/json-schema": "*"
+  checksum: 428b0c971a50adb0d08621e76f21b284580a0052a31341a0e6d553f72b54cd0142d549aa1497c7e3bc56e9f6bcc27286e66e0216e1ba76d1a5ecd2279c40bc8c
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:*":
   version: 0.0.51
   resolution: "@types/estree@npm:0.0.51"
@@ -3189,6 +3199,7 @@ __metadata:
     "@incloud/prettier-config": ^1.0.0
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-typescript": ^8.3.2
+    "@types/eslint": ^8.4.5
     "@types/fs-extra": ^9.0.13
     "@types/node": 16.11.36
     "@typescript-eslint/eslint-plugin": ^5.26.0
