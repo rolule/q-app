@@ -1,17 +1,24 @@
 import { Image, Text } from '@chakra-ui/react';
-import { Route, Routes } from 'react-router-dom';
+import { QLink } from 'components';
 import { QLogoPath } from 'images';
-import { DetailPage } from 'pages/DetailPage';
+import { Page } from 'types/page';
+import { itemsDetailPage } from 'pages/ItemsDetailPage';
+import { itemsPage } from 'pages/ItemsPage';
+import { FunctionComponent } from 'react';
+import { resolveRoute } from 'utils/routes';
 
-export const StartPage: IPage = () => (
+const StartPage: FunctionComponent = () => (
   <>
     <Image width="50px" src={QLogoPath} alt="logo" />
     <Text>App</Text>
-
-    <Routes>
-      <Route path="id/:element" element={<DetailPage />} />
-    </Routes>
+    <QLink to={resolveRoute(itemsPage)}>To Items</QLink>
+    <QLink to={resolveRoute(itemsDetailPage, { id: '1' })}>
+      To Items-Detail
+    </QLink>
   </>
 );
 
-StartPage.path = '/';
+export const startPage: Page = {
+  path: ['/'],
+  Component: StartPage,
+};
