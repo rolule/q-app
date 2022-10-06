@@ -1,2 +1,2 @@
 export * from './QLink';
-export * from './SmartForm';
+export * from './form';

@@ -1,22 +1,10 @@
-import {
-  Button,
-  FormControl,
-  Heading,
-  Input,
-  Stack,
-  useToast,
-} from '@chakra-ui/react';
+import { Button, Heading, Stack, useToast } from '@chakra-ui/react';
 import { FunctionComponent } from 'react';
-import {
-  Controller,
-  SubmitErrorHandler,
-  SubmitHandler,
-  useForm,
-} from 'react-hook-form';
-import { SmartForm } from 'components';
+import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
+import { EmailInput, SmartForm, PasswordInput } from 'components';
 
 const defaultValues = {
-  user: '',
+  email: '',
   password: '',
 };
 
@@ -26,15 +14,18 @@ export const LoginPage: FunctionComponent = () => {
   const form = useForm({ defaultValues });
   const toast = useToast();
 
-  const onValid: SubmitHandler<LoginFormValues> = ({ user }) =>
+  const onValid: SubmitHandler<LoginFormValues> = ({ email }) =>
     toast({
-      title: `Logged in with ${user}`,
+      title: `Logged in with ${email}`,
       status: 'success',
     });
 
-  const onInvalid: SubmitErrorHandler<LoginFormValues> = ({ user, password }) =>
+  const onInvalid: SubmitErrorHandler<LoginFormValues> = ({
+    email,
+    password,
+  }) =>
     toast({
-      title: `Error: ${(user || password)?.message ?? 'Unknown'}`,
+      title: `Error: ${(email || password)?.message ?? 'Unknown'}`,
       status: 'error',
     });
 
@@ -48,51 +39,14 @@ export const LoginPage: FunctionComponent = () => {
     >
       <Heading>Login</Heading>
 
-      <SmartForm
-        form={form}
-        spacing={2}
-        onValid={onValid}
-        onInvalid={onInvalid}
-      >
-        <Controller
-          control={form.control}
-          render={({ field }) => (
-            <FormControl isInvalid={!!form.formState.errors.user}>
-              <Input placeholder="Username" {...field} />
-            </FormControl>
-          )}
-          name="user"
-          rules={{
-            required: {
-              value: true,
-              message: 'The username is required',
-            },
-            minLength: {
-              value: 5,
-              message: 'The username has to be 5 characters long',
-            },
-          }}
+      <SmartForm form={form} spacing={2} {...{ onValid, onInvalid }}>
+        <EmailInput
+          name="email"
+          rules={{ required: { value: true, message: 'Email is required' } }}
+          placeholder="E-Mail"
         />
 
-        <Controller
-          control={form.control}
-          render={({ field }) => (
-            <FormControl isInvalid={!!form.formState.errors.password}>
-              <Input type="password" placeholder="Password" {...field} />
-            </FormControl>
-          )}
-          name="password"
-          rules={{
-            required: {
-              value: true,
-              message: 'The password is required',
-            },
-            minLength: {
-              value: 8,
-              message: 'The password has to be 8 characters long',
-            },
-          }}
-        />
+        <PasswordInput name="password" placeholder="Password" />
 
         <Button type="submit">Submit</Button>
       </SmartForm>
