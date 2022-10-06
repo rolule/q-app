@@ -1,5 +1,5 @@
-import { DetailPage } from './DetailPage';
+import { LoginPage } from './LoginPage';
 import { NotFoundPage } from './NotFoundPage';
 import { StartPage } from './StartPage';
 
-export { NotFoundPage, StartPage, DetailPage };
+export { NotFoundPage, StartPage, LoginPage };

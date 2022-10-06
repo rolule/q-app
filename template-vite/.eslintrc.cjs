@@ -12,4 +12,12 @@ module.exports = {
       },
     },
   },
+  plugins: ['unused-imports'],
+  rules: {
+    // unused imports have to be removed
+    'unused-imports/no-unused-imports-ts': 'error',
+
+    // empty tags have to be closed
+    'react/self-closing-comp': ['error'],
+  },
 };
