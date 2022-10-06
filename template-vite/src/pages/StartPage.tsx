@@ -1,6 +1,7 @@
 import { Button, Image, Text } from '@chakra-ui/react';
 import { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+import { QLink } from 'components';
 import { QLogoPath } from 'images';
 import { changeAppLanguage } from 'utils/locales';
 
@@ -19,6 +20,8 @@ export const StartPage: FunctionComponent = () => {
       >
         Change Language
       </Button>
+
+      <QLink to="detail">To Detail page</QLink>
     </>
   );
 };
