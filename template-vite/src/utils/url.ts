@@ -1,3 +1,8 @@
+/**
+ * Determines, if a given URL is not belonging to this SPA
+ * @param url string
+ * @returns boolean
+ */
 export const isExternalUrl = (url: string) => {
   try {
     // TODO: Adapt this for SSR

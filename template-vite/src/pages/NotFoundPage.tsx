@@ -1,12 +1,10 @@
 import { Text } from '@chakra-ui/react';
+import { FunctionComponent } from 'react';
 import { QLink } from 'components';
-import { StartPage } from 'pages/StartPage';
 
-export const NotFoundPage: IPage = () => (
+export const NotFoundPage: FunctionComponent = () => (
   <>
     <Text>This page could not be found</Text>
-    <QLink to={StartPage.path}>To start page</QLink>
+    <QLink to="/">Back to Startpage</QLink>
   </>
 );
-
-NotFoundPage.path = '*';

@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import { RootRouter } from 'RootRouter';
 import { DefaultLayout } from 'components';
 import { customTheme } from 'theme';
+import 'locales/setupI18next';
 
 const root = document.getElementById('root');
 

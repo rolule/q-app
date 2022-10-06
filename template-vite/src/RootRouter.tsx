@@ -5,7 +5,7 @@ import { NotFoundPage, StartPage } from 'pages';
 export const RootRouter: FunctionComponent = () => (
   <BrowserRouter>
     <Routes>
-      <Route path={`${StartPage.path}*`} element={<StartPage />} />
+      <Route path="/" element={<StartPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </BrowserRouter>
