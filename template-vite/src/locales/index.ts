@@ -14,7 +14,7 @@ export type TranslationKey = keyof TranslationResource;
 export const supportedLngs = Object.keys(resources) as readonly LanguageCode[];
 
 // Set fallback language from environment
-const envFallbackLng = import.meta.env.VITE_FALLBACK_LANGUAGE as string;
+const envFallbackLng = import.meta.env.VITE_FALLBACK_LANGUAGE;
 export const fallbackLng: LanguageCode = isSupportedLanguage(envFallbackLng)
   ? envFallbackLng
   : supportedLngs[0];
