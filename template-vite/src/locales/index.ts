@@ -1,6 +1,5 @@
 import { de } from './de';
 import { en } from './en';
-import { isSupportedLanguage } from 'utils/locales';
 
 // the resource definitions used by i18next
 export const resources = { en, de } as const;
@@ -14,8 +13,8 @@ export type TranslationKey = keyof TranslationResource;
 export const supportedLngs = Object.keys(resources) as readonly LanguageCode[];
 
 // Set fallback language from environment
-const envFallbackLng = import.meta.env.VITE_FALLBACK_LANGUAGE;
-export const fallbackLng: LanguageCode = isSupportedLanguage(envFallbackLng)
+const envFallbackLng = import.meta.env.VITE_FALLBACK_LANGUAGE as LanguageCode;
+export const fallbackLng: LanguageCode = supportedLngs.includes(envFallbackLng)
   ? envFallbackLng
   : supportedLngs[0];
 export const defaultNS: TranslationKey = 'common';
