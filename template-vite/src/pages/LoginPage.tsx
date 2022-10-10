@@ -47,6 +47,8 @@ export const LoginPage: FunctionComponent = () => {
       title: getFirstError(errors)?.message ?? t('unkown'),
       status: 'error',
     });
+
+    throw 'uncaught error';
   };
 
   return (
@@ -60,8 +62,13 @@ export const LoginPage: FunctionComponent = () => {
       <Heading>Login</Heading>
 
       <SmartForm form={form} spacing={2} {...{ onValid, onInvalid }}>
-        <FormInput name="email" placeholder="E-Mail" />
-        <FormInput type="password" name="password" placeholder="Password" />
+        <FormInput name="email" placeholder="E-Mail" autoComplete="username" />
+        <FormInput
+          type="password"
+          name="password"
+          placeholder="Password"
+          autoComplete="current-password"
+        />
 
         <Button type="submit">Submit</Button>
       </SmartForm>
