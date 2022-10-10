@@ -1,33 +1,53 @@
 import { Button, Heading, Stack, useToast } from '@chakra-ui/react';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { FunctionComponent } from 'react';
-import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
-import { EmailInput, SmartForm, PasswordInput } from 'components';
+import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import * as z from 'zod';
+import {
+  SmartForm,
+  SubmitHandlerEventless,
+  SubmitErrorHandlerEventless,
+  FormInput,
+} from 'components';
+import { getFirstError } from 'utils/validation';
 
-const defaultValues = {
-  email: '',
-  password: '',
+const passwordMinLength = 8;
+
+const useSchema = () => {
+  const { t } = useTranslation('validation');
+
+  return z.object({
+    email: z.string().email(t('email')),
+    password: z
+      .string()
+      .min(passwordMinLength, t('password.min', { min: passwordMinLength })),
+  });
 };
 
-type LoginFormValues = typeof defaultValues;
+type LoginFormValues = z.infer<ReturnType<typeof useSchema>>;
+const defaultValues: LoginFormValues = { email: '', password: '' };
 
 export const LoginPage: FunctionComponent = () => {
-  const form = useForm({ defaultValues });
   const toast = useToast();
+  const formSchema = useSchema();
+  const form = useForm({
+    resolver: zodResolver(formSchema),
+    defaultValues,
+  });
 
-  const onValid: SubmitHandler<LoginFormValues> = ({ email }) =>
-    toast({
-      title: `Logged in with ${email}`,
-      status: 'success',
-    });
+  const { t } = useTranslation('validation');
 
-  const onInvalid: SubmitErrorHandler<LoginFormValues> = ({
-    email,
-    password,
-  }) =>
+  const onValid: SubmitHandlerEventless<LoginFormValues> = ({ email }) => {
+    toast({ title: `Logged in with ${email}`, status: 'success' });
+  };
+
+  const onInvalid: SubmitErrorHandlerEventless<LoginFormValues> = (errors) => {
     toast({
-      title: `Error: ${(email || password)?.message ?? 'Unknown'}`,
+      title: getFirstError(errors)?.message ?? t('unkown'),
       status: 'error',
     });
+  };
 
   return (
     <Stack
@@ -40,13 +60,8 @@ export const LoginPage: FunctionComponent = () => {
       <Heading>Login</Heading>
 
       <SmartForm form={form} spacing={2} {...{ onValid, onInvalid }}>
-        <EmailInput
-          name="email"
-          rules={{ required: { value: true, message: 'Email is required' } }}
-          placeholder="E-Mail"
-        />
-
-        <PasswordInput name="password" placeholder="Password" />
+        <FormInput name="email" placeholder="E-Mail" />
+        <FormInput type="password" name="password" placeholder="Password" />
 
         <Button type="submit">Submit</Button>
       </SmartForm>

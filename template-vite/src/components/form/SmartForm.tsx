@@ -31,6 +31,16 @@ type SmartFormProps<T extends FieldValues> = {
 } & Omit<ComponentWithAs<'form', StackProps>, ReservedProps> &
   Omit<StackProps, ReservedProps>;
 
+/**
+ * A form component accepting Stack props for layouting. Also provides to form instance to all children via FormProvider
+ * @see https://react-hook-form.com/advanced-usage#SmartFormComponent
+ * @param form The form instance
+ * @param onValid A simple function that receives the valid results. This allowes passing in react-query mutation functions directly, without creating an anonymous function in between
+ * @param onValidEvent A function that receives the valid results and the event
+ * @param onInvalid A simple function that receives the errors object
+ * @param onValidEvent A function that receives the errors object and the event
+ * @returns
+ */
 export const SmartForm = <T extends FieldValues>({
   form,
   onValid,

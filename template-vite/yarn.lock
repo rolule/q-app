@@ -3274,6 +3274,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hookform/resolvers@npm:^2.9.8":
+  version: 2.9.8
+  resolution: "@hookform/resolvers@npm:2.9.8"
+  peerDependencies:
+    react-hook-form: ^7.0.0
+  checksum: 3b8389a32baa784916d75565db3a13979cf776cc5552055f851c99283070f76e9b70d760a3222031b79610cde033d8417d63408a3e02577651f899b228d544ef
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.10.5":
   version: 0.10.7
   resolution: "@humanwhocodes/config-array@npm:0.10.7"
@@ -8441,6 +8450,7 @@ __metadata:
     "@commitlint/config-conventional": ^17.1.0
     "@emotion/react": ^11.10.4
     "@emotion/styled": ^11.10.4
+    "@hookform/resolvers": ^2.9.8
     "@incloud/prettier-config": ^1.0.0
     "@types/eslint": ^8.4.6
     "@types/node": ^18.8.1
@@ -8471,6 +8481,7 @@ __metadata:
     url-join: ^5.0.0
     vite: ^3.1.4
     vite-tsconfig-paths: ^3.5.1
+    zod: ^3.19.1
   languageName: unknown
   linkType: soft
 
@@ -9039,5 +9050,12 @@ __metadata:
   version: 0.1.0
   resolution: "yocto-queue@npm:0.1.0"
   checksum: f77b3d8d00310def622123df93d4ee654fc6a0096182af8bd60679ddcdfb3474c56c6c7190817c84a2785648cdee9d721c0154eb45698c62176c322fb46fc700
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.19.1":
+  version: 3.19.1
+  resolution: "zod@npm:3.19.1"
+  checksum: 56e420ea5845912324a8fc61833714a2aec84954e418b52660d76502183c6e62fef9447cbfa64349640c5ce190cf2c24267e006bb80f066183e2f3fa9fe11864
   languageName: node
   linkType: hard
