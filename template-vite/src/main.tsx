@@ -12,6 +12,15 @@ const root = document.getElementById('root');
 
 if (!root) throw new Error('The root container could not be found');
 
+// start mock service worker for local development
+// see https://mswjs.io/
+if (import.meta.env.DEV) {
+  const { worker } = await import('./mocks/browser');
+
+  worker.printHandlers();
+  void worker.start({ onUnhandledRequest: 'bypass' });
+}
+
 const queryClient = new QueryClient();
 
 createRoot(root).render(

@@ -22,9 +22,7 @@ export type LoginParams = z.infer<ReturnType<typeof useLoginSchema>>;
  * @param loginParams username and password
  * @returns mutation object for logging in
  */
-const login = (_loginParams: LoginParams) =>
-  new Promise((resolve) => {
-    setTimeout(resolve, 2000);
-  });
+const login = (loginParams: LoginParams) =>
+  fetch(`/api/login`, { method: 'post', body: JSON.stringify(loginParams) });
 
 export const useLogin = () => useMutation(login);

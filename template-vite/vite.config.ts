@@ -13,7 +13,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 const htmlPlugin = (env: ReturnType<typeof loadEnv>) => ({
   name: 'html-transform',
   transformIndexHtml: (html: string) =>
-    html.replace(/%(.*?)%/g, (match, p1) => env[p1]),
+    html.replace(/%(.*?)%/g, (_match, p1) => env[p1]),
 });
 
 // https://vitejs.dev/config/
