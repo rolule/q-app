@@ -1,5 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RootRouter } from 'RootRouter';
@@ -18,6 +19,8 @@ createRoot(root).render(
     <ErrorBoundary>
       <ChakraProvider theme={customTheme}>
         <QueryClientProvider client={queryClient}>
+          <ReactQueryDevtools />
+
           <RootRouter />
         </QueryClientProvider>
       </ChakraProvider>
