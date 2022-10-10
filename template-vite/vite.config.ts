@@ -1,6 +1,7 @@
-import react from '@vitejs/plugin-react';
+import { default as react } from '@vitejs/plugin-react';
 import { defineConfig, loadEnv } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
+import { default as tsconfigPaths } from 'vite-tsconfig-paths';
+import { InlineConfig as VitestOptions } from 'vitest';
 
 /**
  * This is a custom plugin that replaces %VITE_VARIABLE% with .env variables in index.html
@@ -30,5 +31,11 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: 'build/',
     },
+    test: {
+      globals: true,
+      environmentOptions: {
+        jsdom: { url: 'http://localhost:3001' },
+      },
+    } as VitestOptions,
   };
 });

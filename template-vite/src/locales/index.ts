@@ -18,6 +18,7 @@ export const fallbackLng: LanguageCode = supportedLngs.includes(envFallbackLng)
   ? envFallbackLng
   : supportedLngs[0];
 export const defaultNS: TranslationKey = 'common';
+export const languageLocalstorageKey = 'language';
 
 // a set of BCP 47 language codes
 // see https://www.i18next.com/how-to/faq#how-should-the-language-codes-be-formatted

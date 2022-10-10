@@ -1,7 +1,31 @@
 import { default as i18next } from 'i18next';
 import { default as LanguageDetector } from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
-import { defaultNS, fallbackLng, resources, supportedLngs } from 'locales';
+import {
+  defaultNS,
+  fallbackLng,
+  languageLocalstorageKey,
+  resources,
+  supportedLngs,
+} from 'locales';
+import { changeAppLanguage, isSupportedLanguage } from 'utils/locales';
+
+// update the document language when i18next is initialized or the language is changed or initialized
+i18next.on('languageChanged', () => {
+  // change back to the fallback language if the language code is not supported
+  if (!isSupportedLanguage(i18next.language)) {
+    return void changeAppLanguage(fallbackLng);
+  }
+
+  // change the direction of the document for RTL languages
+  document.body.setAttribute('dir', i18next.dir(i18next.language));
+
+  // set the html lang attribute
+  document.documentElement.setAttribute('lang', i18next.language);
+
+  // TODO: Change date library locale
+  // e.g: setDayJSLocale(languageCode);
+});
 
 // initialize i18next
 void i18next
@@ -19,18 +43,7 @@ void i18next
 
     // browser language detector options, see https://github.com/i18next/i18next-browser-languageDetector
     detection: {
-      lookupLocalStorage: 'language',
+      // the language cookie stores the users selected or detected language
+      lookupLocalStorage: languageLocalstorageKey,
     },
   });
-
-// update the document language when i18next is initialized or the language is changed
-i18next.on('languageChanged', () => {
-  // change the direction of the document for RTL languages
-  document.body.setAttribute('dir', i18next.dir(i18next.language));
-
-  // set the html lang attribute
-  document.documentElement.setAttribute('lang', i18next.language);
-
-  // TODO: Change date library locale
-  // e.g: setDayJSLocale(languageCode);
-});
