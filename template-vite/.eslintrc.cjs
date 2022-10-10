@@ -19,5 +19,8 @@ module.exports = {
 
     // empty tags have to be closed
     'react/self-closing-comp': ['error'],
+
+    // allow unused variables prefixed with _
+    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
   },
 };

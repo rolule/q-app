@@ -1,51 +1,45 @@
-import { Button, Heading, Stack, useToast } from '@chakra-ui/react';
+import { Button, Stack, useToast } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FunctionComponent } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import * as z from 'zod';
+import { useNavigate } from 'react-router-dom';
 import {
   SmartForm,
-  SubmitHandlerEventless,
   SubmitErrorHandlerEventless,
   FormInput,
+  SubmitHandlerEventless,
 } from 'components';
+import { LoginParams, useLogin, useLoginSchema } from 'hooks/mutations';
 import { getFirstError } from 'utils/validation';
 
-const passwordMinLength = 8;
-
-const useSchema = () => {
-  const { t } = useTranslation('validation');
-
-  return z.object({
-    email: z.string().email(t('email')),
-    password: z
-      .string()
-      .min(passwordMinLength, t('password.min', { min: passwordMinLength })),
-  });
-};
-
-type LoginFormValues = z.infer<ReturnType<typeof useSchema>>;
-const defaultValues: LoginFormValues = { email: '', password: '' };
+const defaultValues: LoginParams = { email: '', password: '' };
 
 export const LoginPage: FunctionComponent = () => {
+  const navigate = useNavigate();
   const toast = useToast();
-  const formSchema = useSchema();
-  const form = useForm({
-    resolver: zodResolver(formSchema),
-    defaultValues,
-  });
+  const loginSchema = useLoginSchema();
+  const form = useForm({ resolver: zodResolver(loginSchema), defaultValues });
 
   const { t } = useTranslation('validation');
+  const { isLoading, mutateAsync: login } = useLogin();
 
-  const onValid: SubmitHandlerEventless<LoginFormValues> = ({ email }) => {
-    toast({ title: `Logged in with ${email}`, status: 'success' });
+  const onValid: SubmitHandlerEventless<LoginParams> = async (loginParams) => {
+    try {
+      await login(loginParams);
+
+      // show success message and navigate to start page
+      toast({ title: 'Logged in', status: 'success' });
+      navigate('/');
+    } catch (error) {
+      toast({ title: t('unkown'), status: 'error' });
+    }
   };
 
-  const onInvalid: SubmitErrorHandlerEventless<LoginFormValues> = (errors) => {
+  const onInvalid: SubmitErrorHandlerEventless<LoginParams> = (errors) => {
     toast({
-      title: getFirstError(errors)?.message ?? t('unkown'),
       status: 'error',
+      title: getFirstError(errors)?.message ?? t('unkown'),
     });
   };
 
@@ -57,18 +51,29 @@ export const LoginPage: FunctionComponent = () => {
       borderRadius={10}
       align="center"
     >
-      <Heading>Login</Heading>
-
-      <SmartForm form={form} spacing={2} {...{ onValid, onInvalid }}>
-        <FormInput name="email" placeholder="E-Mail" autoComplete="username" />
+      <SmartForm
+        form={form}
+        spacing={2}
+        onValid={onValid}
+        onInvalid={onInvalid}
+      >
+        <FormInput
+          name="email"
+          placeholder="E-Mail"
+          autoComplete="username"
+          isDisabled={isLoading}
+        />
         <FormInput
           type="password"
           name="password"
           placeholder="Password"
           autoComplete="current-password"
+          isDisabled={isLoading}
         />
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit" isLoading={isLoading}>
+          Login
+        </Button>
       </SmartForm>
     </Stack>
   );

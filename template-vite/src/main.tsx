@@ -1,4 +1,5 @@
 import { ChakraProvider } from '@chakra-ui/react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RootRouter } from 'RootRouter';
@@ -10,11 +11,15 @@ const root = document.getElementById('root');
 
 if (!root) throw new Error('The root container could not be found');
 
+const queryClient = new QueryClient();
+
 createRoot(root).render(
   <StrictMode>
     <ErrorBoundary>
       <ChakraProvider theme={customTheme}>
-        <RootRouter />
+        <QueryClientProvider client={queryClient}>
+          <RootRouter />
+        </QueryClientProvider>
       </ChakraProvider>
     </ErrorBoundary>
   </StrictMode>,

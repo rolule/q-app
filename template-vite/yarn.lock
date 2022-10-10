@@ -3587,6 +3587,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:4.10.3":
+  version: 4.10.3
+  resolution: "@tanstack/query-core@npm:4.10.3"
+  checksum: 64f3d296b5b2a77f4fb90630a1769ac01b4db827a0b61523db982bfc16719bbdae1118d9fef73e17ed35b513884ccf4e35d669e9df89bb34982946b33a59c9d4
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^4.10.3":
+  version: 4.10.3
+  resolution: "@tanstack/react-query@npm:4.10.3"
+  dependencies:
+    "@tanstack/query-core": 4.10.3
+    use-sync-external-store: ^1.2.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-native: "*"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: 3e87b3b4167808b2c7ee322448ae2a1b8215db0b9b793ecec6bf97f3a815f59f3114d6e473475edc1eb71a5d4419fbdd43d7671307b1ea7c0388be74432b6337
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:2":
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
@@ -9000,6 +9026,7 @@ __metadata:
     "@emotion/styled": ^11.10.4
     "@hookform/resolvers": ^2.9.8
     "@incloud/prettier-config": ^1.0.0
+    "@tanstack/react-query": ^4.10.3
     "@types/eslint": ^8.4.6
     "@types/jsdom": ^20.0.0
     "@types/node": ^18.8.1
@@ -9489,6 +9516,15 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 925d1922f9853e516eaad526b6fed1be38008073067274f0ecc3f56b17bb8ab63480140dd7c271f94150027c996cea4efe83d3e3525e8f3eda22055f6a39220b
+  languageName: node
+  linkType: hard
+
+"use-sync-external-store@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "use-sync-external-store@npm:1.2.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 5c639e0f8da3521d605f59ce5be9e094ca772bd44a4ce7322b055a6f58eeed8dda3c94cabd90c7a41fb6fa852210092008afe48f7038792fd47501f33299116a
   languageName: node
   linkType: hard
 
