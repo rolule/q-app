@@ -37,3 +37,6 @@ dist-ssr
 
 # vitest coverage files
 coverage/
+
+# rollup-bundle-visualizer
+stats/

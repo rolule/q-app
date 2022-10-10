@@ -2,6 +2,7 @@ import { default as react } from '@vitejs/plugin-react';
 import { defineConfig, loadEnv } from 'vite';
 import { default as tsconfigPaths } from 'vite-tsconfig-paths';
 import { InlineConfig as VitestOptions } from 'vitest';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 /**
  * This is a custom plugin that replaces %VITE_VARIABLE% with .env variables in index.html
@@ -27,7 +28,23 @@ export default defineConfig(({ mode }) => {
   console.log();
 
   return {
-    plugins: [htmlPlugin(env), react(), tsconfigPaths()],
+    plugins: [
+      htmlPlugin(env),
+      react(),
+      tsconfigPaths(),
+      visualizer({
+        gzipSize: true,
+        brotliSize: true,
+        template: 'sunburst',
+        filename: 'stats/sunburst.html',
+      }),
+      visualizer({
+        gzipSize: true,
+        brotliSize: true,
+        template: 'treemap',
+        filename: 'stats/treemap.html',
+      }),
+    ],
     build: {
       outDir: 'build/',
     },
