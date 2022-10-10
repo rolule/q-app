@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import * as z from 'zod';
+import { jsonRequest } from 'utils/api';
 
 const passwordMinLength = 8;
 
@@ -16,13 +17,17 @@ export const useLoginSchema = () => {
 };
 
 export type LoginParams = z.infer<ReturnType<typeof useLoginSchema>>;
+export type LoginResult = { token: string };
 
 /**
- * Loggs in the user
+ * Logs-in the user
  * @param loginParams username and password
  * @returns mutation object for logging in
  */
 const login = (loginParams: LoginParams) =>
-  fetch(`/api/login`, { method: 'post', body: JSON.stringify(loginParams) });
+  jsonRequest<LoginResult>(`login`, {
+    method: 'post',
+    body: JSON.stringify(loginParams),
+  });
 
 export const useLogin = () => useMutation(login);
