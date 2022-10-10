@@ -47,8 +47,6 @@ export const LoginPage: FunctionComponent = () => {
       title: getFirstError(errors)?.message ?? t('unkown'),
       status: 'error',
     });
-
-    throw 'uncaught error';
   };
 
   return (
