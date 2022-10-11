@@ -39,3 +39,8 @@ coverage/
 
 # rollup-bundle-visualizer
 stats/
+
+# env files
+.env
+.env.local
+.env.production
