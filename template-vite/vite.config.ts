@@ -54,5 +54,9 @@ export default defineConfig(({ mode }) => {
         jsdom: { url: 'http://localhost:3001' },
       },
     } as VitestOptions,
+    server: {
+      port: 5173,
+      strictPort: true,
+    },
   };
 });
