@@ -1111,6 +1111,42 @@ __metadata:
   languageName: node
   linkType: hard
 
+"create-q-app@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "create-q-app@workspace:."
+  dependencies:
+    "@commitlint/cli": ^17.0.0
+    "@commitlint/config-conventional": ^17.0.0
+    "@incloud/prettier-config": ^1.0.0
+    "@rollup/plugin-json": ^4.1.0
+    "@rollup/plugin-typescript": ^8.3.2
+    "@types/eslint": ^8.4.5
+    "@types/fs-extra": ^9.0.13
+    "@types/node": 16.11.36
+    "@typescript-eslint/eslint-plugin": ^5.26.0
+    "@typescript-eslint/parser": ^5.26.0
+    chalk: 5.0.1
+    commander: 9.2.0
+    eslint: ^8.16.0
+    eslint-config-incloud: ^2.0.3
+    eslint-config-prettier: ^8.5.0
+    eslint-plugin-import: ^2.26.0
+    eslint-plugin-prettier: ^4.0.0
+    fs-extra: ^10.1.0
+    husky: ^8.0.1
+    pinst: ^3.0.0
+    prettier: ^2.6.2
+    rollup: ^2.74.1
+    rollup-plugin-preserve-shebang: ^1.0.1
+    rollup-plugin-prettier: ^2.2.2
+    tslib: ^2.4.0
+    typescript: ^4.6.4
+  bin:
+    q: dist/index.js
+    qapp: dist/index.js
+  languageName: unknown
+  linkType: soft
+
 "create-require@npm:^1.1.0":
   version: 1.1.1
   resolution: "create-require@npm:1.1.1"
@@ -3189,42 +3225,6 @@ __metadata:
   checksum: 823bf443c6dd14f669984dea25757b37993f67e8d94698996064035edd43bed8a5a17a9f12e439c2b35df1078c6bec05a6c86e336209eb1061e8025c481168e8
   languageName: node
   linkType: hard
-
-"q-app@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "q-app@workspace:."
-  dependencies:
-    "@commitlint/cli": ^17.0.0
-    "@commitlint/config-conventional": ^17.0.0
-    "@incloud/prettier-config": ^1.0.0
-    "@rollup/plugin-json": ^4.1.0
-    "@rollup/plugin-typescript": ^8.3.2
-    "@types/eslint": ^8.4.5
-    "@types/fs-extra": ^9.0.13
-    "@types/node": 16.11.36
-    "@typescript-eslint/eslint-plugin": ^5.26.0
-    "@typescript-eslint/parser": ^5.26.0
-    chalk: 5.0.1
-    commander: 9.2.0
-    eslint: ^8.16.0
-    eslint-config-incloud: ^2.0.3
-    eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-prettier: ^4.0.0
-    fs-extra: ^10.1.0
-    husky: ^8.0.1
-    pinst: ^3.0.0
-    prettier: ^2.6.2
-    rollup: ^2.74.1
-    rollup-plugin-preserve-shebang: ^1.0.1
-    rollup-plugin-prettier: ^2.2.2
-    tslib: ^2.4.0
-    typescript: ^4.6.4
-  bin:
-    q: dist/index.js
-    qapp: dist/index.js
-  languageName: unknown
-  linkType: soft
 
 "q@npm:^1.5.1":
   version: 1.5.1
