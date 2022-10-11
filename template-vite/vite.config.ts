@@ -53,6 +53,7 @@ export default defineConfig(({ mode }) => {
       environmentOptions: {
         jsdom: { url: 'http://localhost:3001' },
       },
+      setupFiles: 'src/test/setup.ts',
     } as VitestOptions,
     server: {
       port: 5173,
