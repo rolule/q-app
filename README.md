@@ -6,7 +6,7 @@ A utility for creating template projects.
 
 Execute and install the package script using yarn v1 `yarn create q-app` or yarn berry `yarn dlx create-q-app`
 
-After that, the script can also be executed with the `create-q-app` command or its shortcuts `q` or `qapp` (use the`-h` option to display the help)
+After that, the script can also be executed with the `create-q-app` command or its shortcuts `q` or `qapp` (use the `-h` option to display the help)
 
 > Note: Only `yarn` is supported at the moment.
 
