@@ -1,0 +1,14 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.ts, ${capture}.test.ts",
+    "*.tsx": "${capture}.ts, ${capture}.test.tsx",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, .yarnrc.yml, .nvmrc",
+    ".eslintrc*": ".eslintignore, .prettierrc, commitlint.config.cjs, .editorconfig",
+    ".gitignore": ".gitattributes",
+    "vite.config.ts": "index.html",
+    ".env": ".env.*",
+    ".env.local": ".env.*"
+  }
+}

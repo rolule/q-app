@@ -15,9 +15,9 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["vite/client"],
+    "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"],
     "baseUrl": "src/"
   },
-  "include": ["src", "global.d.ts"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -16,8 +16,6 @@ dist-ssr
 *.local
 
 # editor directories and files
-.vscode/*
-!.vscode/extensions.json
 .idea
 .DS_Store
 *.suo
@@ -34,3 +32,9 @@ dist-ssr
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# vitest coverage files
+coverage/
+
+# rollup-bundle-visualizer
+stats/

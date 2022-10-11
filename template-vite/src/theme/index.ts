@@ -7,7 +7,7 @@ import './overrides';
 
 // https://chakra-ui.com/docs/styled-system/theming/customize-theme
 export const customTheme: Partial<ChakraTheme> = extendTheme({
-  components,
+  components: { ...components },
   colors,
   config,
   styles: { global },
