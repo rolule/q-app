@@ -24,7 +24,7 @@ export type LoginResult = { token: string };
  * @param loginParams username and password
  * @returns mutation object for logging in
  */
-const login = (loginParams: LoginParams) =>
+const login = async (loginParams: LoginParams) =>
   jsonRequest<LoginResult>(`login`, {
     method: 'post',
     body: JSON.stringify(loginParams),

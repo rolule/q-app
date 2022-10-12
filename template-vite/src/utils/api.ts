@@ -21,14 +21,14 @@ export const apiRequest = async (path: string, init?: RequestInit) => {
  * @param init request parameters
  * @returns ReturnType
  */
-export const jsonRequest = async <ReturnType>(
+export const jsonRequest = async <TReturnType>(
   path: string,
   init?: RequestInit,
 ) => {
   const r = await apiRequest(path, init);
 
   if (r.status === 200) {
-    return (await r.json()) as ReturnType;
+    return (await r.json()) as TReturnType;
   }
 
   const error = await r.text();

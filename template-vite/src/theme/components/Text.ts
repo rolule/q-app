@@ -1,4 +1,4 @@
-import {
+import type {
   ComponentSingleStyleConfig,
   SystemStyleObject,
 } from '@chakra-ui/react';

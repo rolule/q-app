@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { FieldError } from 'react-hook-form';
+import type { FieldError } from 'react-hook-form';
 import { getFirstError } from 'utils/validation';
 
 describe('getFirstError', () => {

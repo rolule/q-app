@@ -1,12 +1,11 @@
-import { Link, LinkProps } from '@chakra-ui/react';
-import { FunctionComponent } from 'react';
-import {
-  Link as RouterLink,
-  LinkProps as RouterLinkProps,
-} from 'react-router-dom';
+import type { LinkProps } from '@chakra-ui/react';
+import { Link } from '@chakra-ui/react';
+import type { FunctionComponent } from 'react';
+import type { LinkProps as RouterLinkProps } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { isExternalUrl } from 'utils/url';
 
-type QLinkProps = Omit<LinkProps, 'isExternal' | 'as' | 'href'> &
+type QLinkProps = Omit<LinkProps, 'as' | 'href' | 'isExternal'> &
   RouterLinkProps;
 
 /**

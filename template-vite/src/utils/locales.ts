@@ -1,10 +1,6 @@
 import { default as i18next } from 'i18next';
-import {
-  CultureCode,
-  cultureCodes,
-  LanguageCode,
-  supportedLngs,
-} from 'locales';
+import type { CultureCode, LanguageCode } from 'locales';
+import { cultureCodes, supportedLngs } from 'locales';
 
 /**
  * Type guard, that checks if a given language code is supported
@@ -30,5 +26,5 @@ export const isSupportedCultureCode = (
  * A wrapper around i18next.changeLanguage, that only accepts valid language codes
  * @param languageCode The language to switch to
  */
-export const changeAppLanguage = (languageCode: LanguageCode) =>
+export const changeAppLanguage = async (languageCode: LanguageCode) =>
   i18next.changeLanguage(languageCode);

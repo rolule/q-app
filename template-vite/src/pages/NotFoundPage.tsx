@@ -1,5 +1,5 @@
 import { Text } from '@chakra-ui/react';
-import { FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 import { QLink } from 'components';
 
 export const NotFoundPage: FunctionComponent = () => (

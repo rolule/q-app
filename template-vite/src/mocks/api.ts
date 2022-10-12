@@ -1,17 +1,12 @@
-import {
+import type {
   DefaultBodyType,
-  PathParams,
   ResponseResolver,
-  rest,
   RestContext,
   RestRequest,
 } from 'msw';
+import { rest } from 'msw';
 
-type ApiRoute = ResponseResolver<
-  RestRequest<DefaultBodyType, PathParams<string>>,
-  RestContext,
-  DefaultBodyType
->;
+type ApiRoute = ResponseResolver<RestRequest, RestContext, DefaultBodyType>;
 
 /**
  * Handles a user's login request

@@ -1,4 +1,4 @@
-import { TranslationResource, defaultNS } from 'locales';
+import type { TranslationResource, defaultNS } from 'locales';
 import 'react-i18next';
 
 // for more information, see https://react.i18next.com/latest/typescript

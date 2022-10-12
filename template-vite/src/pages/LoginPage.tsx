@@ -1,16 +1,16 @@
 import { Button, Stack, useToast } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import {
-  SmartForm,
+import type {
   SubmitErrorHandlerEventless,
-  FormInput,
   SubmitHandlerEventless,
 } from 'components';
-import { LoginParams, useLogin, useLoginSchema } from 'hooks/mutations';
+import { SmartForm, FormInput } from 'components';
+import type { LoginParams } from 'hooks/mutations';
+import { useLogin, useLoginSchema } from 'hooks/mutations';
 import { getFirstError } from 'utils/validation';
 
 const defaultValues: LoginParams = { email: '', password: '' };

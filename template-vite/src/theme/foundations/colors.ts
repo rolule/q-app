@@ -1,4 +1,4 @@
-import { Colors } from '@chakra-ui/react';
+import type { Colors } from '@chakra-ui/react';
 
 export const colors: Colors = {
   orange: '#FF4000',

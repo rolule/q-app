@@ -1,4 +1,5 @@
-import { ChakraTheme, extendTheme } from '@chakra-ui/react';
+import type { ChakraTheme } from '@chakra-ui/react';
+import { extendTheme } from '@chakra-ui/react';
 import * as components from 'theme/components';
 import { config } from 'theme/config';
 import { colors } from 'theme/foundations';

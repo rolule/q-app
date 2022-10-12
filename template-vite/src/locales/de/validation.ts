@@ -1,4 +1,4 @@
-import { TranslationResource } from 'locales';
+import type { TranslationResource } from 'locales';
 
 export const validation: TranslationResource['validation'] = {
   unkown: 'Unbekannter Fehler',

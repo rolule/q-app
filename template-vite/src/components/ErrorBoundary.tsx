@@ -1,5 +1,6 @@
 import { Heading } from '@chakra-ui/react';
-import { Component, PropsWithChildren, ErrorInfo } from 'react';
+import type { PropsWithChildren, ErrorInfo } from 'react';
+import { Component } from 'react';
 
 interface IErrorBoundaryState {
   hasError: boolean;

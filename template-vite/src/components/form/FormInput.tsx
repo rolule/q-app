@@ -1,18 +1,14 @@
-import {
-  FormControl,
-  FormControlProps,
-  FormErrorMessage,
-  Input,
-  InputProps,
-} from '@chakra-ui/react';
-import { FunctionComponent } from 'react';
-import { Controller, ControllerProps, useFormContext } from 'react-hook-form';
+import type { FormControlProps, InputProps } from '@chakra-ui/react';
+import { FormControl, FormErrorMessage, Input } from '@chakra-ui/react';
+import type { FunctionComponent } from 'react';
+import type { ControllerProps } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form';
 
-export type FormInputProps = {
+export type FormInputProps = InputProps & {
   name: string;
   showError?: boolean;
   controlProps?: FormControlProps;
-} & InputProps;
+};
 
 /**
  * A smart form Input, that automatically registers itself to a parent SmartForm under the given name

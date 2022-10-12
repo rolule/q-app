@@ -1,35 +1,41 @@
-import { ComponentWithAs, Stack, StackProps } from '@chakra-ui/react';
-import { PropsWithChildren } from 'react';
+import type { ComponentWithAs, StackProps } from '@chakra-ui/react';
+import { Stack } from '@chakra-ui/react';
+import type { PropsWithChildren } from 'react';
 
-import {
+import type {
   FieldErrors,
   FieldValues,
-  FormProvider,
   SubmitErrorHandler,
   SubmitHandler,
   UseFormReturn,
 } from 'react-hook-form';
+import { FormProvider } from 'react-hook-form';
 
 // required because we want to pass in mutate functions directly
 // with the normal SubmitHandler, we always need create an inline functions
 // because its second argument is an event and the mutation options are incompatible to it
-export type SubmitHandlerEventless<T> = (data: T) => unknown | Promise<unknown>;
+export type SubmitHandlerEventless<T extends FieldValues> = (
+  data: T,
+) => ReturnType<SubmitHandler<T>>;
 
 // same as above for onInvalid
 export type SubmitErrorHandlerEventless<T extends FieldValues> = (
   errors: FieldErrors<T>,
-) => unknown | Promise<unknown>;
+) => ReturnType<SubmitErrorHandler<T>>;
 
-type ReservedProps = 'onSubmit' | 'onInvalid';
+type ReservedProps = 'onInvalid' | 'onSubmit';
 
-type SmartFormProps<T extends FieldValues> = {
-  form: Omit<UseFormReturn<T>, ReservedProps>;
-  onValid?: SubmitHandlerEventless<T>;
-  onValidEvent?: SubmitHandler<T>;
-  onInvalid?: SubmitErrorHandlerEventless<T>;
-  onInvalidEvent?: SubmitErrorHandler<T>;
-} & Omit<ComponentWithAs<'form', StackProps>, ReservedProps> &
-  Omit<StackProps, ReservedProps>;
+type SmartFormProps<T extends FieldValues> = Omit<
+  ComponentWithAs<'form', StackProps>,
+  ReservedProps
+> &
+  Omit<StackProps, ReservedProps> & {
+    form: Omit<UseFormReturn<T>, ReservedProps>;
+    onValid?: SubmitHandlerEventless<T>;
+    onValidEvent?: SubmitHandler<T>;
+    onInvalid?: SubmitErrorHandlerEventless<T>;
+    onInvalidEvent?: SubmitErrorHandler<T>;
+  };
 
 /**
  * A form component accepting Stack props for layouting. Also provides to form instance to all children via FormProvider
@@ -52,8 +58,8 @@ export const SmartForm = <T extends FieldValues>({
 }: PropsWithChildren<SmartFormProps<T>>) => {
   const { handleSubmit } = form;
 
-  const onSubmitValid = onValid || onValidEvent;
-  const onSubmitInvalid = onInvalid || onInvalidEvent;
+  const onSubmitValid = onValid ?? onValidEvent;
+  const onSubmitInvalid = onInvalid ?? onInvalidEvent;
 
   return (
     <Stack
