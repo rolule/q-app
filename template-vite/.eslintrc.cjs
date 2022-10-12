@@ -23,11 +23,19 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     sourceType: 'module',
-    tsconfigRootDir: __dirname,
-    project: ['./tsconfig.json'],
     ecmaFeatures: { jsx: true },
   },
   root: true,
+
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      parserOptions: {
+        tsconfigRootDir: __dirname,
+        project: 'tsconfig.json',
+      },
+    },
+  ],
 
   extends: [
     // use eslint recommended rules
