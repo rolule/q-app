@@ -1,4 +1,4 @@
-import type { TranslationResource } from 'locales';
+import type { TranslationResource } from 'locales'
 
 export const validation: TranslationResource['validation'] = {
   unkown: 'Unbekannter Fehler',
@@ -6,4 +6,4 @@ export const validation: TranslationResource['validation'] = {
   password: {
     min: 'Das Passwort muss mindestens {{ min }} Zeichen lang sein',
   },
-};
+}

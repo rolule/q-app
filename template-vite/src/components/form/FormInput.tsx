@@ -1,14 +1,14 @@
-import type { FormControlProps, InputProps } from '@chakra-ui/react';
-import { FormControl, FormErrorMessage, Input } from '@chakra-ui/react';
-import type { FunctionComponent } from 'react';
-import type { ControllerProps } from 'react-hook-form';
-import { Controller, useFormContext } from 'react-hook-form';
+import type { FormControlProps, InputProps } from '@chakra-ui/react'
+import { FormControl, FormErrorMessage, Input } from '@chakra-ui/react'
+import type { FunctionComponent } from 'react'
+import type { ControllerProps } from 'react-hook-form'
+import { Controller, useFormContext } from 'react-hook-form'
 
 export type FormInputProps = InputProps & {
-  name: string;
-  showError?: boolean;
-  controlProps?: FormControlProps;
-};
+  name: string
+  showError?: boolean
+  controlProps?: FormControlProps
+}
 
 /**
  * A smart form Input, that automatically registers itself to a parent SmartForm under the given name
@@ -25,9 +25,9 @@ export const FormInput: FunctionComponent<FormInputProps> = ({
   const {
     control,
     formState: { errors },
-  } = useFormContext();
+  } = useFormContext()
 
-  const errorMessage = errors[name]?.message as string;
+  const errorMessage = errors[name]?.message as string
 
   const controllerProps: ControllerProps = {
     control,
@@ -42,7 +42,7 @@ export const FormInput: FunctionComponent<FormInputProps> = ({
         )}
       </FormControl>
     ),
-  };
+  }
 
-  return <Controller {...controllerProps} />;
-};
+  return <Controller {...controllerProps} />
+}

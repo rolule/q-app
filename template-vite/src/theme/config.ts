@@ -1,3 +1,3 @@
-import type { ThemeConfig } from '@chakra-ui/react';
+import type { ThemeConfig } from '@chakra-ui/react'
 
-export const config: ThemeConfig = { cssVarPrefix: 'q' };
+export const config: ThemeConfig = { cssVarPrefix: 'q' }

@@ -56,9 +56,9 @@ module.exports = {
     // accessibility rules
     'plugin:jsx-a11y/recommended',
 
-    // prettier override: disables rules that conflict with prettier styles
-    // see https://github.com/prettier/eslint-config-prettier
-    'prettier',
+    // prettier recommended config
+    // see https://github.com/prettier/eslint-plugin-prettier#recommended-configuration
+    'plugin:prettier/recommended',
   ],
 
   plugins: [
@@ -215,4 +215,4 @@ module.exports = {
       },
     ],
   },
-};
+}

@@ -8,11 +8,11 @@ export class FetchError extends Error {}
  */
 export const apiRequest = async (path: string, init?: RequestInit) => {
   try {
-    return await fetch(`/api/${path}`, init);
+    return await fetch(`/api/${path}`, init)
   } catch (error) {
-    throw new FetchError('Error while fetching');
+    throw new FetchError('Error while fetching')
   }
-};
+}
 
 /**
  * Fetches from the API route under the given path and parses the result to JSON
@@ -25,16 +25,16 @@ export const jsonRequest = async <TReturnType>(
   path: string,
   init?: RequestInit,
 ) => {
-  const r = await apiRequest(path, init);
+  const r = await apiRequest(path, init)
 
   if (r.status === 200) {
-    return (await r.json()) as TReturnType;
+    return (await r.json()) as TReturnType
   }
 
-  const error = await r.text();
+  const error = await r.text()
 
-  throw new FetchError(error);
-};
+  throw new FetchError(error)
+}
 
 /**
  * Fetches from the API route under the given path and returns the result as text
@@ -44,11 +44,11 @@ export const jsonRequest = async <TReturnType>(
  * @returns string of return value
  */
 export const textRequest = async (path: string, init?: RequestInit) => {
-  const r = await apiRequest(path, init);
+  const r = await apiRequest(path, init)
 
   if (r.status === 200) {
-    return r.text();
+    return r.text()
   }
 
-  throw new FetchError(await r.text());
-};
+  throw new FetchError(await r.text())
+}

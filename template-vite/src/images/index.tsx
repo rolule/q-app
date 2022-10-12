@@ -1,1 +1,1 @@
-export { default as QLogoPath } from './qlogo.svg';
+export { default as QLogoPath } from './qlogo.svg'

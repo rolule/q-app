@@ -1,2 +1,2 @@
-export * from './FormInput';
-export * from './SmartForm';
+export * from './FormInput'
+export * from './SmartForm'

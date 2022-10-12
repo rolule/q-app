@@ -1,2 +1,2 @@
-export * from './Link';
-export * from './Text';
+export * from './Link'
+export * from './Text'
