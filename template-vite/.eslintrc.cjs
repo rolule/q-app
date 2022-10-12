@@ -18,6 +18,14 @@ module.exports = {
         { name: 'QLink', linkAttribute: 'to' },
       ],
     },
+
+    'jsx-a11y': {
+      components: {
+        Button: 'button',
+        Input: 'input',
+        Image: 'img',
+      },
+    },
   },
 
   parser: '@typescript-eslint/parser',
@@ -62,7 +70,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
 
     // accessibility rules
-    'plugin:jsx-a11y/recommended',
+    'plugin:jsx-a11y/strict',
 
     // prettier recommended config
     // see https://github.com/prettier/eslint-plugin-prettier#recommended-configuration
