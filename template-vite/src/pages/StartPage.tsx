@@ -11,11 +11,12 @@ export const StartPage: FunctionComponent = () => {
 
   return (
     <>
-      <Image width="50px" src={QLogoPath} alt="logo" />
+      <Image alt="logo" src={QLogoPath} width="50px" />
       <Text>{t('welcome')}</Text>
 
       <Button
         color="cyan"
+        disabled
         onClick={() => {
           void changeAppLanguage(i18n.language === 'de' ? 'en' : 'de')
         }}

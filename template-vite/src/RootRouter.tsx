@@ -21,11 +21,11 @@ export const RootRouter: FunctionComponent = () => (
             </Suspense>
           }
         >
-          <Route path="/" element={<StartPage />} />
-          <Route path="login" element={<LoginPage />} />
+          <Route element={<StartPage />} path="/" />
+          <Route element={<LoginPage />} path="login" />
         </Route>
 
-        <Route path="*" element={<NotFoundPage />} />
+        <Route element={<NotFoundPage />} path="*" />
       </Route>
     </Routes>
   </BrowserRouter>

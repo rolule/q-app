@@ -19,8 +19,8 @@ export const QLink: FunctionComponent<QLinkProps> = ({ to, ...linkProps }) => {
     return (
       <Link
         href={to}
-        isExternal
         rel="noreferrer noopener nofollow"
+        isExternal
         {...linkProps}
       />
     )

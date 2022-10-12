@@ -29,7 +29,6 @@ createRoot(root).render(
       <ChakraProvider theme={customTheme}>
         <QueryClientProvider client={queryClient}>
           <ReactQueryDevtools />
-
           <RootRouter />
         </QueryClientProvider>
       </ChakraProvider>

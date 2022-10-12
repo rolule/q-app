@@ -24,7 +24,9 @@ export const LoginPage: FunctionComponent = () => {
   const { t } = useTranslation('validation')
   const { isLoading, mutateAsync: login } = useLogin()
 
-  const onValid: SubmitHandlerEventless<LoginParams> = async (loginParams) => {
+  const handleValidSubmit: SubmitHandlerEventless<LoginParams> = async (
+    loginParams,
+  ) => {
     try {
       await login(loginParams)
 
@@ -36,7 +38,9 @@ export const LoginPage: FunctionComponent = () => {
     }
   }
 
-  const onInvalid: SubmitErrorHandlerEventless<LoginParams> = (errors) => {
+  const handleInvalidSubmit: SubmitErrorHandlerEventless<LoginParams> = (
+    errors,
+  ) => {
     toast({
       status: 'error',
       title: getFirstError(errors)?.message ?? t('unkown'),
@@ -45,33 +49,34 @@ export const LoginPage: FunctionComponent = () => {
 
   return (
     <Stack
-      spacing={5}
-      bgColor="cyan"
-      padding={5}
-      borderRadius={10}
       align="center"
+      bgColor="cyan"
+      borderRadius={10}
+      padding={5}
+      spacing={5}
     >
       <SmartForm
         form={form}
         spacing={2}
-        onValid={onValid}
-        onInvalid={onInvalid}
+        onInvalid={handleInvalidSubmit}
+        onValid={handleValidSubmit}
       >
         <FormInput
-          name="email"
-          placeholder="E-Mail"
           autoComplete="username"
           isDisabled={isLoading}
-        />
-        <FormInput
-          type="password"
-          name="password"
-          placeholder="Password"
-          autoComplete="current-password"
-          isDisabled={isLoading}
+          name="email"
+          placeholder="E-Mail"
         />
 
-        <Button type="submit" isLoading={isLoading}>
+        <FormInput
+          autoComplete="current-password"
+          isDisabled={isLoading}
+          name="password"
+          placeholder="Password"
+          type="password"
+        />
+
+        <Button isLoading={isLoading} type="submit">
           Login
         </Button>
       </SmartForm>

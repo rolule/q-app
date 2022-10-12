@@ -191,11 +191,117 @@ module.exports = {
     '@typescript-eslint/switch-exhaustiveness-check': 'warn',
 
     /**
-     * react-app rules
+     * React rules
      */
 
-    // empty tags have to be closed
-    'react/self-closing-comp': ['error'],
+    // enforce a specific function type for function components
+    'react/function-component-definition': [
+      'error',
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
+
+    // ensure destructuring and symmetric naming of useState hook value and setter variables (Option possible after next release)
+    'react/hook-use-state': ['error' /* , { allowDestructuredState: true } */],
+
+    // enforce sandbox attribute on iframe elements
+    'react/iframe-missing-sandbox': 'warn',
+
+    // disallow usage of Array index in keys
+    'react/no-array-index-key': 'warn',
+
+    // disallow usage of invalid attributes
+    'react/no-invalid-html-attribute': 'warn',
+
+    // disallow multiple component definition per file
+    'react/no-multi-comp': ['error', { ignoreStateless: true }],
+
+    // disallow `this` from being used in stateless functional components
+    'react/no-this-in-sfc': 'error',
+
+    // disallow creating unstable components inside components
+    'react/no-unstable-nested-components': ['error', { allowAsProps: true }],
+
+    // disallow extra closing tags for components without children
+    'react/self-closing-comp': 'error',
+
+    // disallow void DOM elements (e.g. <img />, <br />) from receiving children
+    'react/void-dom-elements-no-children': 'error',
+
+    /**
+     * JSX specific rules
+     */
+
+    // enforce boolean attributes notation in JSX
+    'react/jsx-boolean-value': 'error',
+
+    // enforce or disallow spaces inside of curly braces in JSX attributes and expressions
+    'react/jsx-child-element-spacing': 'warn',
+
+    // disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes
+    'react/jsx-curly-brace-presence': [
+      'warn',
+      { props: 'never', children: 'never', propElementValues: 'always' },
+    ],
+
+    // enforce event handler naming conventions in JSX
+    'react/jsx-handler-names': [
+      'error',
+      {
+        eventHandlerPrefix: 'handle',
+        eventHandlerPropPrefix: 'on',
+        checkLocalVariables: true,
+        checkInlineFunction: false,
+      },
+    ],
+
+    // require or prevent a new line after jsx elements and expressions
+    'react/jsx-newline': ['warn', { prevent: true, allowMultilines: true }],
+
+    // disallows JSX context provider values from taking values that will cause needless rerenders
+    'react/jsx-no-constructed-context-values': 'warn',
+
+    // disallow unnecessary fragments
+    'react/jsx-no-useless-fragment': ['error', { allowExpressions: true }],
+
+    // enforce PascalCase for user-defined JSX components
+    'react/jsx-pascal-case': [
+      'error',
+      {
+        allowAllCaps: false,
+        allowNamespace: false,
+        allowLeadingUnderscore: false,
+        ignore: [],
+      },
+    ],
+
+    // disallow JSX prop spreading
+    'react/jsx-props-no-spreading': [
+      'warn',
+      {
+        html: 'enforce',
+        custom: 'ignore',
+        explicitSpread: 'ignore',
+        exceptions: [],
+      },
+    ],
+
+    // enforce props alphabetical sorting
+    'react/jsx-sort-props': [
+      'warn',
+      {
+        callbacksLast: true,
+        shorthandFirst: false,
+        shorthandLast: true,
+        multiline: 'ignore',
+        ignoreCase: true,
+        noSortAlphabetically: false,
+        reservedFirst: ['key'],
+        locale: 'auto',
+      },
+    ],
 
     /**
      * import rules

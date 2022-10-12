@@ -58,13 +58,16 @@ export const SmartForm = <T extends FieldValues>({
 }: PropsWithChildren<SmartFormProps<T>>) => {
   const { handleSubmit } = form
 
-  const onSubmitValid = onValid ?? onValidEvent
-  const onSubmitInvalid = onInvalid ?? onInvalidEvent
+  const handleValidSubmit = onValid ?? onValidEvent
+  const handleInvalidSubmit = onInvalid ?? onInvalidEvent
 
   return (
     <Stack
       as="form"
-      onSubmit={onSubmitValid && handleSubmit(onSubmitValid, onSubmitInvalid)}
+      onSubmit={
+        handleValidSubmit &&
+        handleSubmit(handleValidSubmit, handleInvalidSubmit)
+      }
       {...props}
     >
       <FormProvider {...form}>{children}</FormProvider>

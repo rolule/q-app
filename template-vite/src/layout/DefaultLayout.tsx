@@ -3,7 +3,7 @@ import type { FunctionComponent } from 'react'
 import { Outlet } from 'react-router-dom'
 
 export const DefaultLayout: FunctionComponent = () => (
-  <Center bgColor="grey" height="100%" flexDir="column">
+  <Center bgColor="grey" flexDir="column" height="100%">
     <Outlet />
   </Center>
 )

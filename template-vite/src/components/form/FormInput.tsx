@@ -27,7 +27,7 @@ export const FormInput: FunctionComponent<FormInputProps> = ({
     formState: { errors },
   } = useFormContext()
 
-  const errorMessage = errors[name]?.message as string
+  const errorMessage = errors[name]?.message?.toString()
 
   const controllerProps: ControllerProps = {
     control,
