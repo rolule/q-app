@@ -3835,16 +3835,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:^7.28.2":
-  version: 7.29.0
-  resolution: "@types/eslint@npm:7.29.0"
-  dependencies:
-    "@types/estree": "*"
-    "@types/json-schema": "*"
-  checksum: df13991c554954353ce8f3bb03e19da6cc71916889443d68d178d4f858b561ba4cc4a4f291c6eb9eebb7f864b12b9b9313051b3a8dfea3e513dadf3188a77bdf
-  languageName: node
-  linkType: hard
-
 "@types/eslint@npm:^8.4.6":
   version: 8.4.6
   resolution: "@types/eslint@npm:8.4.6"
@@ -5937,31 +5927,6 @@ __metadata:
     escodegen: bin/escodegen.js
     esgenerate: bin/esgenerate.js
   checksum: 5aa6b2966fafe0545e4e77936300cc94ad57cfe4dc4ebff9950492eaba83eef634503f12d7e3cbd644ecc1bab388ad0e92b06fd32222c9281a75d1cf02ec6cef
-  languageName: node
-  linkType: hard
-
-"eslint-config-incloud@npm:^2.0.3":
-  version: 2.0.3
-  resolution: "eslint-config-incloud@npm:2.0.3"
-  dependencies:
-    "@types/eslint": ^7.28.2
-  peerDependencies:
-    "@typescript-eslint/eslint-plugin": ^4.33.0
-    "@typescript-eslint/parser": ^4.33.0
-    babel-eslint: ^10.1.0
-    eslint: ^7.32.0
-    eslint-config-prettier: ^8.3.0
-    eslint-config-react-app: ^6.0.0
-    eslint-plugin-flowtype: ^5.10.0
-    eslint-plugin-import: ^2.25.2
-    eslint-plugin-jest: ^24.7.0
-    eslint-plugin-jsx-a11y: ^6.4.1
-    eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-react: ^7.26.1
-    eslint-plugin-react-hooks: ^4.2.0
-    eslint-plugin-testing-library: ^3.10.2
-    prettier: ^2.4.1
-  checksum: fcc5163b976ad8372edee1270eb07e49070a1ec7c80fa67243ba6f6a034fddfa2dc31ed29dec1975fb15123b73285786307adb9f21423d0ad4316df17ce5045d
   languageName: node
   linkType: hard
 
@@ -10034,7 +9999,6 @@ __metadata:
     "@vitejs/plugin-react": ^2.1.0
     "@vitest/coverage-c8": ^0.24.1
     eslint: ^8.25.0
-    eslint-config-incloud: ^2.0.3
     eslint-config-prettier: ^8.5.0
     eslint-config-react-app: ^7.0.1
     eslint-import-resolver-typescript: ^3.5.1
