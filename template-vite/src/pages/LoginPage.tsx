@@ -28,7 +28,7 @@ export const LoginPage: FunctionComponent = () => {
       // show success message and navigate to start page
       toast({ title: 'Logged in', status: 'success' })
       navigate('/')
-    } catch (error) {
+    } catch {
       toast({ title: t('unkown'), status: 'error' })
     }
   }

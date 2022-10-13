@@ -72,6 +72,9 @@ module.exports = {
     // accessibility rules
     'plugin:jsx-a11y/strict',
 
+    // unicorn rules
+    'plugin:unicorn/recommended',
+
     // prettier recommended config
     // see https://github.com/prettier/eslint-plugin-prettier#recommended-configuration
     'plugin:prettier/recommended',
@@ -399,5 +402,27 @@ module.exports = {
         argsIgnorePattern: '^_',
       },
     ],
+
+    /**
+     * unicorn rules
+     */
+
+    // enforce a case style for filenames
+    'unicorn/filename-case': 'off',
+
+    // enforce specific import styles per module
+    'unicorn/import-style': 'off',
+
+    // prevent abbreviations
+    'unicorn/prevent-abbreviations': 'off',
+
+    // prefer `for…of` over the `forEach` method
+    'unicorn/no-array-for-each': 'off',
+
+    // disallow `Array#reduce()` and `Array#reduceRight()`
+    'unicorn/no-array-reduce': 'off',
+
+    // disallow the use of the null literal
+    'unicorn/no-null': 'off',
   },
 }

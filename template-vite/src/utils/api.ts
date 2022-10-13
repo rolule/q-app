@@ -11,7 +11,7 @@ export class FetchError extends Error {}
 export const apiRequest = async (path: string, init?: RequestInit) => {
   try {
     return await fetch(`/api/${path}`, init)
-  } catch (error) {
+  } catch {
     throw new FetchError('Error while fetching')
   }
 }

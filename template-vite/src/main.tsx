@@ -8,7 +8,7 @@ import { ErrorBoundary } from 'components'
 import { customTheme } from 'theme'
 import 'locales/setupI18next'
 
-const root = document.getElementById('root')
+const root = document.querySelector('#root')
 
 if (!root) {
   throw new Error('The root container could not be found')

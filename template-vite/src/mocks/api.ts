@@ -9,6 +9,7 @@ const delay = 2000
 /**
  * Handles a user's login request
  */
-const login: ApiRoute = async (_req, res, c) => res(c.delay(delay), c.json({ token: 'blablabla' }))
+const login: ApiRoute = async (_request, response, context) =>
+  response(context.delay(delay), context.json({ token: 'blablabla' }))
 
 export const apiHandlers = [rest.post('/api/login', login)]
