@@ -88,6 +88,9 @@ module.exports = {
      * eslint rules
      */
 
+    // disallow template literal placeholder syntax in regular strings
+    'no-template-curly-in-string': 'warn',
+
     //
     'arrow-body-style': ['error', 'as-needed'],
 

@@ -36,10 +36,7 @@ export const FormInput: FunctionComponent<FormInputProps> = ({
     render: ({ field }) => (
       <FormControl isInvalid={!!errors[name]} {...controlProps}>
         <Input {...field} {...inputProps} />
-
-        {showError && errorMessage && (
-          <FormErrorMessage>{errorMessage}</FormErrorMessage>
-        )}
+        {showError && errorMessage && <FormErrorMessage>{errorMessage}</FormErrorMessage>}
       </FormControl>
     ),
   }

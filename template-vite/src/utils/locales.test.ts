@@ -1,15 +1,6 @@
 import { default as i18next } from 'i18next'
-import {
-  changeAppLanguage,
-  isSupportedCultureCode,
-  isSupportedLanguage,
-} from './locales'
-import {
-  cultureCodes,
-  fallbackLng,
-  languageLocalstorageKey,
-  supportedLngs,
-} from 'locales'
+import { changeAppLanguage, isSupportedCultureCode, isSupportedLanguage } from './locales'
+import { cultureCodes, fallbackLng, languageLocalstorageKey, supportedLngs } from 'locales'
 
 // @vitest-environment jsdom
 

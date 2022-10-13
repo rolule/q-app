@@ -9,7 +9,7 @@ export const getFirstError = <TFieldValues extends FieldValues>(
   errors: FieldErrorsImpl<TFieldValues>,
 ) => {
   const firstKey = Object.keys(errors)
-    .filter((key) => !!errors[key])
+    .filter(key => !!errors[key])
     .at(0)
 
   return firstKey ? errors[firstKey] : undefined

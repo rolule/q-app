@@ -1,13 +1,7 @@
 import { default as i18next } from 'i18next'
 import { default as LanguageDetector } from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
-import {
-  defaultNS,
-  fallbackLng,
-  languageLocalstorageKey,
-  resources,
-  supportedLngs,
-} from 'locales'
+import { defaultNS, fallbackLng, languageLocalstorageKey, resources, supportedLngs } from 'locales'
 import { changeAppLanguage, isSupportedLanguage } from 'utils/locales'
 
 // update the document language when i18next is initialized or the language is changed or initialized

@@ -10,9 +10,7 @@ export const useLoginSchema = () => {
 
   return z.object({
     email: z.string().email(t('email')),
-    password: z
-      .string()
-      .min(passwordMinLength, t('password.min', { min: passwordMinLength })),
+    password: z.string().min(passwordMinLength, t('password.min', { min: passwordMinLength })),
   })
 }
 

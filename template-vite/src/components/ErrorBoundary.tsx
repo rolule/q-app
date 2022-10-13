@@ -6,10 +6,7 @@ interface IErrorBoundaryState {
   hasError: boolean
 }
 
-export class ErrorBoundary extends Component<
-  PropsWithChildren,
-  IErrorBoundaryState
-> {
+export class ErrorBoundary extends Component<PropsWithChildren, IErrorBoundaryState> {
   constructor(props: PropsWithChildren) {
     super(props)
     this.state = { hasError: false }

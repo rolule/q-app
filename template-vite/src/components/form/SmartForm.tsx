@@ -64,10 +64,7 @@ export const SmartForm = <T extends FieldValues>({
   return (
     <Stack
       as="form"
-      onSubmit={
-        handleValidSubmit &&
-        handleSubmit(handleValidSubmit, handleInvalidSubmit)
-      }
+      onSubmit={handleValidSubmit && handleSubmit(handleValidSubmit, handleInvalidSubmit)}
       {...props}
     >
       <FormProvider {...form}>{children}</FormProvider>

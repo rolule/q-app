@@ -7,9 +7,7 @@ import { cultureCodes, supportedLngs } from 'locales'
  * @param languageCode the language code string to check
  * @returns boolean
  */
-export const isSupportedLanguage = (
-  languageCode: string,
-): languageCode is LanguageCode =>
+export const isSupportedLanguage = (languageCode: string): languageCode is LanguageCode =>
   supportedLngs.includes(languageCode as LanguageCode)
 
 /**
@@ -17,9 +15,7 @@ export const isSupportedLanguage = (
  * @param locale the culture code string to check
  * @returns boolean
  */
-export const isSupportedCultureCode = (
-  cultureCode: string,
-): cultureCode is CultureCode =>
+export const isSupportedCultureCode = (cultureCode: string): cultureCode is CultureCode =>
   cultureCodes.includes(cultureCode as CultureCode)
 
 /**
