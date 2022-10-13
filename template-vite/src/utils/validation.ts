@@ -8,9 +8,7 @@ import type { FieldErrorsImpl, FieldValues } from 'react-hook-form'
 export const getFirstError = <TFieldValues extends FieldValues>(
   errors: FieldErrorsImpl<TFieldValues>,
 ) => {
-  const firstKey = Object.keys(errors)
-    .filter(key => !!errors[key])
-    .at(0)
+  const firstKey = Object.keys(errors).filter(key => !!errors[key])[0]
 
   return firstKey ? errors[firstKey] : undefined
 }

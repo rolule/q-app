@@ -91,11 +91,29 @@ module.exports = {
     // disallow template literal placeholder syntax in regular strings
     'no-template-curly-in-string': 'warn',
 
-    //
-    'arrow-body-style': ['error', 'as-needed'],
+    // enforce consistent brace style for all control statements
+    curly: ['warn', 'all'],
 
-    //
+    // equire the use of `===` and `!==`
+    eqeqeq: ['error', 'smart'],
+
+    // enforce dot notation whenever possible
+    'dot-notation': 'warn',
+
+    // disallow the use of `console`
     'no-console': ['error', { allow: ['error', 'warn'] }],
+
+    // disallow shorthand type conversions
+    'no-implicit-coercion': ['warn', { allow: ['!!'] }],
+
+    // disallow magic numbers
+    'no-magic-numbers': ['warn', { ignoreArrayIndexes: true, ignore: [-1, 0, 1] }],
+
+    // disallow variable declarations from shadowing variables declared in the outer scope
+    'no-shadow': 'error',
+
+    // require or disallow "Yoda" conditions
+    yoda: 'error',
 
     /**
      * typescript-eslint rules
@@ -190,10 +208,7 @@ module.exports = {
     '@typescript-eslint/promise-function-async': 'error',
 
     // require Array#sort calls to always provide a compareFunction
-    '@typescript-eslint/require-array-sort-compare': [
-      'warn',
-      { ignoreStringArrays: true },
-    ],
+    '@typescript-eslint/require-array-sort-compare': ['warn', { ignoreStringArrays: true }],
 
     // enforce members of a type union/intersection to be sorted alphabetically
     '@typescript-eslint/sort-type-union-intersection-members': 'warn',

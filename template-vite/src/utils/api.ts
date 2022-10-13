@@ -1,3 +1,5 @@
+import { StatusCodes } from 'http-status-codes'
+
 export class FetchError extends Error {}
 
 /**
@@ -24,7 +26,7 @@ export const apiRequest = async (path: string, init?: RequestInit) => {
 export const jsonRequest = async <TReturnType>(path: string, init?: RequestInit) => {
   const r = await apiRequest(path, init)
 
-  if (r.status === 200) {
+  if (r.status === StatusCodes.OK) {
     return (await r.json()) as TReturnType
   }
 
@@ -43,7 +45,7 @@ export const jsonRequest = async <TReturnType>(path: string, init?: RequestInit)
 export const textRequest = async (path: string, init?: RequestInit) => {
   const r = await apiRequest(path, init)
 
-  if (r.status === 200) {
+  if (r.status === StatusCodes.OK) {
     return r.text()
   }
 

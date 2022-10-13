@@ -10,7 +10,9 @@ import 'locales/setupI18next'
 
 const root = document.getElementById('root')
 
-if (!root) throw new Error('The root container could not be found')
+if (!root) {
+  throw new Error('The root container could not be found')
+}
 
 // start mock service worker for local development
 // see https://mswjs.io/
