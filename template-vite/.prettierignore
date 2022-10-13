@@ -1,0 +1,4 @@
+coverage/
+stats/
+build/
+node_modules/
