@@ -106,14 +106,17 @@ module.exports = {
     // disallow shorthand type conversions
     'no-implicit-coercion': ['warn', { allow: ['!!'] }],
 
-    // disallow magic numbers
-    'no-magic-numbers': ['warn', { ignoreArrayIndexes: true, ignore: [-1, 0, 1] }],
+    // disable this because it is overridden by typescript-eslint
+    'no-magic-numbers': 'off',
 
-    // disallow variable declarations from shadowing variables declared in the outer scope
+    // disable this because it is overridden by typescript-eslint
     'no-shadow': 'error',
 
     // require or disallow "Yoda" conditions
     yoda: 'error',
+
+    // add an empty line before return statements
+    'padding-line-between-statements': ['warn', { blankLine: 'always', prev: '*', next: 'return' }],
 
     /**
      * typescript-eslint rules
@@ -215,6 +218,15 @@ module.exports = {
 
     // require switch-case statements to be exhaustive with union type
     '@typescript-eslint/switch-exhaustiveness-check': 'warn',
+
+    // disallow variable declarations from shadowing variables declared in the outer scope
+    '@typescript-eslint/no-shadow': 'warn',
+
+    // disallow magic numbers
+    '@typescript-eslint/no-magic-numbers': [
+      'warn',
+      { ignoreArrayIndexes: true, ignore: [-1, 0, 1] },
+    ],
 
     /**
      * React rules
