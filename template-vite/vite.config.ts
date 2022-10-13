@@ -1,8 +1,8 @@
-import { default as react } from '@vitejs/plugin-react';
-import { defineConfig, loadEnv } from 'vite';
-import { default as tsconfigPaths } from 'vite-tsconfig-paths';
-import { InlineConfig as VitestOptions } from 'vitest';
-import { visualizer } from 'rollup-plugin-visualizer';
+import { default as react } from '@vitejs/plugin-react'
+import { defineConfig, loadEnv } from 'vite'
+import { default as tsconfigPaths } from 'vite-tsconfig-paths'
+import { InlineConfig as VitestOptions } from 'vitest'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 /**
  * This is a custom plugin that replaces %VITE_VARIABLE% with .env variables in index.html
@@ -14,18 +14,18 @@ const htmlPlugin = (env: ReturnType<typeof loadEnv>) => ({
   name: 'html-transform',
   transformIndexHtml: (html: string) =>
     html.replace(/%(.*?)%/g, (_match, p1) => env[p1]),
-});
+})
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, '.');
+  const env = loadEnv(mode, '.')
 
   // log environment variables to console
-  console.log(`Environment variables`);
+  console.log(`Environment variables`)
   Object.entries(env).forEach(([key, value]) =>
     console.log(`- ${key}=${value}`),
-  );
-  console.log();
+  )
+  console.log()
 
   return {
     plugins: [
@@ -59,5 +59,5 @@ export default defineConfig(({ mode }) => {
       port: 5173,
       strictPort: true,
     },
-  };
-});
+  }
+})
