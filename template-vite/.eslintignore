@@ -1,2 +1,7 @@
 vite.config.ts
 vitest.config.ts
+
+coverage/
+stats/
+build/
+node_modules/
