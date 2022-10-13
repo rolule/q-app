@@ -109,6 +109,16 @@ module.exports = {
     // disable this because it is overridden by typescript-eslint
     'no-magic-numbers': 'off',
 
+    // disallow specified modules when loaded by `import`
+    'no-restricted-imports': [
+      'error',
+      {
+        patterns: [
+          { group: ['../*'], message: 'Do not use ../ imports. Use root relative imports instead' },
+        ],
+      },
+    ],
+
     // disable this because it is overridden by typescript-eslint
     'no-shadow': 'error',
 
@@ -345,11 +355,32 @@ module.exports = {
      * import rules
      */
 
-    //
-    'import/no-default-export': 'error',
+    // forbid import of modules using absolute paths
+    'import/no-absolute-path': 'error',
 
-    //
+    // ensures that there is no resolvable path back to this module via its dependencies
+    'import/no-cycle': 'error',
+
+    // use this rule to prevent unnecessary path segments in import and require statements
+    'import/no-useless-path-segments': 'error',
+
+    // use this rule to prevent importing packages through relative paths
+    'import/no-relative-packages': 'error',
+
+    // forbid the use of Node.js builtin modules. Can be useful for client-side web projects that do not have access to those modules.
+    'import/no-nodejs-modules': 'error',
+
+    // this rule reports any imports that come after non-import statements
+    'import/first': 'error',
+
+    // enforce a convention in module import order
     'import/order': ['error', { alphabetize: { order: 'asc' } }],
+
+    // enforces having one or more empty lines after the last top-level import statement or require call
+    'import/newline-after-import': 'error',
+
+    // prohibit default exports
+    'import/no-default-export': 'error',
 
     /**
      * unused-imports rules
@@ -357,6 +388,8 @@ module.exports = {
 
     // unused imports have to be removed
     'unused-imports/no-unused-imports': 'error',
+
+    // allow vars prefixed with `_`
     'unused-imports/no-unused-vars': [
       'error',
       {

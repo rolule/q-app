@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { default as userEvent } from '@testing-library/user-event'
 import { BrowserRouter } from 'react-router-dom'
-import { QLink } from 'components/QLink'
+import { QLink } from 'components'
 
 // @vitest-environment jsdom
 
